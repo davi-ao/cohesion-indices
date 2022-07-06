@@ -18,7 +18,7 @@ library(udpipe)
 library(SnowballC)
 
 # Load text
-text = read_file('text1.txt')
+text = read_file('text2.txt')
 
 # Data cleansing-----------------------------------------------------------------
 clean_text = text %>%
@@ -118,7 +118,7 @@ for(q in (data %>% .$clique %>% unique())) {
   
   global_backward_cohesion = global_backward_cohesion %>%
     bind_rows(tibble(
-      text = 'text1',
+      text = 'text2',
       clique = q,
       r = intersect(q_i %>% .$stem, G_i %>% .$stem) %>% length(),
       m_v = (q_i %>% filter(!stem %in% G_i$stem) %>% .$lemma) %in% 
@@ -162,7 +162,7 @@ for(i in 1:length(q)) {
   
   local_backward_cohesion = local_backward_cohesion %>%
     bind_rows(tibble(
-      text = 'text1',
+      text = 'text2',
       clique = q[i],
       r = intersect(q_i %>% .$stem, q_j %>% .$stem) %>% length(),
       m_v = (q_i %>% filter(!stem %in% q_j$stem) %>% .$lemma) %in% 
@@ -204,7 +204,7 @@ for(i in 1:length(q)) {
   
   local_forward_cohesion = local_forward_cohesion %>%
     bind_rows(tibble(
-      text = 'text1',
+      text = 'text2',
       clique = q[i],
       r = intersect(q_i %>% .$stem, q_j %>% .$stem) %>% length(),
       m_v = (q_i %>% filter(!stem %in% q_j$stem) %>% .$lemma) %in% 
@@ -246,7 +246,7 @@ for(i in 1:length(q)) {
   
   mean_pairwise_cohesion = mean_pairwise_cohesion %>%
     bind_rows(tibble(
-      text = 'text1',
+      text = 'text2',
       clique = q[i],
       p = mean(indices)))
 }
