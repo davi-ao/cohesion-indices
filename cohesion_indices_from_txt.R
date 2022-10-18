@@ -18,7 +18,7 @@ library(udpipe)
 library(SnowballC)
 
 # Load text
-text = read_file('text2.txt')
+text = read_file('S0167739X17328431.txt')
 
 # Data cleansing-----------------------------------------------------------------
 clean_text = text %>%
